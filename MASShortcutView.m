@@ -382,6 +382,7 @@
 - (void)mouseExited:(NSEvent *)event
 {
     self.mouseIsOver = NO;
+    self.hinting = NO;
 }
 
 - (void)mouseMoved:(NSEvent *)event
