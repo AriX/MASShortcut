@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02062E9D16BDFFEB00BB8754 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F8FDBD16531A9C00FFDAD5 /* Cocoa.framework */; };
+		02062EA316BDFFEB00BB8754 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 02062EA116BDFFEB00BB8754 /* InfoPlist.strings */; };
+		02062EA516BDFFEB00BB8754 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 02062EA416BDFFEB00BB8754 /* main.m */; };
+		02062EA916BDFFEB00BB8754 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 02062EA716BDFFEB00BB8754 /* Credits.rtf */; };
+		02062EAC16BDFFEB00BB8754 /* MASAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 02062EAB16BDFFEB00BB8754 /* MASAppDelegate.m */; };
+		02062EAF16BDFFEB00BB8754 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02062EAD16BDFFEB00BB8754 /* MainMenu.xib */; };
+		02062EB316BE003B00BB8754 /* MASShortcut.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F8FDBA16531A9C00FFDAD5 /* MASShortcut.framework */; };
+		02062EB516BE004600BB8754 /* MASShortcut.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 13F8FDBA16531A9C00FFDAD5 /* MASShortcut.framework */; };
 		02062EB816BE2D7300BB8754 /* Clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EB616BE2D7300BB8754 /* Clear.png */; };
 		02062EB916BE2D7300BB8754 /* Clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EB716BE2D7300BB8754 /* Clear@2x.png */; };
 		02062EBC16BE302000BB8754 /* Clear-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EBA16BE302000BB8754 /* Clear-Highlighted.png */; };
@@ -31,7 +39,29 @@
 		13F8FDE5165320FD00FFDAD5 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F8FDE4165320FD00FFDAD5 /* Carbon.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		02062EB416BE004000BB8754 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02062EB516BE004600BB8754 /* MASShortcut.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		02062E9C16BDFFEB00BB8754 /* MASShortcutTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MASShortcutTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02062EA016BDFFEB00BB8754 /* MASShortcutTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MASShortcutTest-Info.plist"; sourceTree = "<group>"; };
+		02062EA216BDFFEB00BB8754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		02062EA416BDFFEB00BB8754 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		02062EA616BDFFEB00BB8754 /* MASShortcutTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MASShortcutTest-Prefix.pch"; sourceTree = "<group>"; };
+		02062EA816BDFFEB00BB8754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		02062EAA16BDFFEB00BB8754 /* MASAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASAppDelegate.h; sourceTree = "<group>"; };
+		02062EAB16BDFFEB00BB8754 /* MASAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASAppDelegate.m; sourceTree = "<group>"; };
+		02062EAE16BDFFEB00BB8754 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		02062EB616BE2D7300BB8754 /* Clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clear.png; sourceTree = "<group>"; };
 		02062EB716BE2D7300BB8754 /* Clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clear@2x.png"; sourceTree = "<group>"; };
 		02062EBA16BE302000BB8754 /* Clear-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clear-Highlighted.png"; sourceTree = "<group>"; };
@@ -63,6 +93,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		02062E9916BDFFEB00BB8754 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02062E9D16BDFFEB00BB8754 /* Cocoa.framework in Frameworks */,
+				02062EB316BE003B00BB8754 /* MASShortcut.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13F8FDB616531A9C00FFDAD5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,10 +114,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02062E9E16BDFFEB00BB8754 /* MASShortcut Demo */ = {
+			isa = PBXGroup;
+			children = (
+				02062EAA16BDFFEB00BB8754 /* MASAppDelegate.h */,
+				02062EAB16BDFFEB00BB8754 /* MASAppDelegate.m */,
+				02062EAD16BDFFEB00BB8754 /* MainMenu.xib */,
+				02062E9F16BDFFEB00BB8754 /* Supporting Files */,
+			);
+			name = "MASShortcut Demo";
+			path = MASShortcutTest;
+			sourceTree = "<group>";
+		};
+		02062E9F16BDFFEB00BB8754 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				02062EA016BDFFEB00BB8754 /* MASShortcutTest-Info.plist */,
+				02062EA116BDFFEB00BB8754 /* InfoPlist.strings */,
+				02062EA416BDFFEB00BB8754 /* main.m */,
+				02062EA616BDFFEB00BB8754 /* MASShortcutTest-Prefix.pch */,
+				02062EA716BDFFEB00BB8754 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		13F8FDB016531A9C00FFDAD5 = {
 			isa = PBXGroup;
 			children = (
 				13F8FDC316531A9C00FFDAD5 /* MASShortcut */,
+				02062E9E16BDFFEB00BB8754 /* MASShortcut Demo */,
 				13F8FDBC16531A9C00FFDAD5 /* Frameworks */,
 				13F8FDBB16531A9C00FFDAD5 /* Products */,
 			);
@@ -88,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				13F8FDBA16531A9C00FFDAD5 /* MASShortcut.framework */,
+				02062E9C16BDFFEB00BB8754 /* MASShortcutTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +233,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		02062E9B16BDFFEB00BB8754 /* MASShortcut Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 02062EB216BDFFEB00BB8754 /* Build configuration list for PBXNativeTarget "MASShortcut Demo" */;
+			buildPhases = (
+				02062E9816BDFFEB00BB8754 /* Sources */,
+				02062E9916BDFFEB00BB8754 /* Frameworks */,
+				02062E9A16BDFFEB00BB8754 /* Resources */,
+				02062EB416BE004000BB8754 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MASShortcut Demo";
+			productName = MASShortcutTest;
+			productReference = 02062E9C16BDFFEB00BB8754 /* MASShortcutTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 		13F8FDB916531A9C00FFDAD5 /* MASShortcut */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13F8FDCF16531A9C00FFDAD5 /* Build configuration list for PBXNativeTarget "MASShortcut" */;
@@ -209,11 +292,22 @@
 			projectRoot = "";
 			targets = (
 				13F8FDB916531A9C00FFDAD5 /* MASShortcut */,
+				02062E9B16BDFFEB00BB8754 /* MASShortcut Demo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		02062E9A16BDFFEB00BB8754 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02062EA316BDFFEB00BB8754 /* InfoPlist.strings in Resources */,
+				02062EA916BDFFEB00BB8754 /* Credits.rtf in Resources */,
+				02062EAF16BDFFEB00BB8754 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13F8FDB816531A9C00FFDAD5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +326,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		02062E9816BDFFEB00BB8754 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02062EA516BDFFEB00BB8754 /* main.m in Sources */,
+				02062EAC16BDFFEB00BB8754 /* MASAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		13F8FDB516531A9C00FFDAD5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,7 +350,65 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		02062EA116BDFFEB00BB8754 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02062EA216BDFFEB00BB8754 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		02062EA716BDFFEB00BB8754 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02062EA816BDFFEB00BB8754 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		02062EAD16BDFFEB00BB8754 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				02062EAE16BDFFEB00BB8754 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		02062EB016BDFFEB00BB8754 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MASShortcutTest/MASShortcutTest-Prefix.pch";
+				INFOPLIST_FILE = "MASShortcutTest/MASShortcutTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		02062EB116BDFFEB00BB8754 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MASShortcutTest/MASShortcutTest-Prefix.pch";
+				INFOPLIST_FILE = "MASShortcutTest/MASShortcutTest-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		13F8FDCD16531A9C00FFDAD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -343,6 +504,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		02062EB216BDFFEB00BB8754 /* Build configuration list for PBXNativeTarget "MASShortcut Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				02062EB016BDFFEB00BB8754 /* Debug */,
+				02062EB116BDFFEB00BB8754 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		13F8FDB416531A9C00FFDAD5 /* Build configuration list for PBXProject "MASShortcut" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
