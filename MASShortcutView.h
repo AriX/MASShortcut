@@ -14,7 +14,10 @@ typedef enum {
     NSTrackingArea *_hintArea;
     
     BOOL _enabled;
+    BOOL _highlighted;
+    BOOL _hintHighlighted;
     BOOL _hinting;
+    BOOL _mouseIsOver;
     MASShortcut *_shortcutValue;
     NSString *_shortcutPlaceholder;
     void (^_shortcutValueChange)(MASShortcutView *sender);

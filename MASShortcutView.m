@@ -1,8 +1,9 @@
 #import "MASShortcutView.h"
 #import "MASShortcut.h"
+#import "NSImage+FlippedDrawing.h"
 
 #define HINT_BUTTON_WIDTH 23.0
-#define BUTTON_FONT_SIZE 11.0
+#define BUTTON_FONT_SIZE 12.0
 #define SEGMENT_CHROME_WIDTH 6.0
 
 #pragma mark -
@@ -10,6 +11,9 @@
 @interface MASShortcutView () // Private accessors
 
 @property (nonatomic, getter = isHinting) BOOL hinting;
+@property (nonatomic, getter = isHighlighted) BOOL highlighted;
+@property (nonatomic) BOOL hintHighlighted;
+@property (nonatomic) BOOL mouseIsOver;
 @property (nonatomic, copy) NSString *shortcutPlaceholder;
 
 @end
@@ -19,12 +23,15 @@
 @implementation MASShortcutView
 
 @synthesize enabled = _enabled;
+@synthesize highlighted = _highlighted;
+@synthesize hintHighlighted = _hintHighlighted;
 @synthesize hinting = _hinting;
+@synthesize mouseIsOver = _mouseIsOver;
 @synthesize shortcutValue = _shortcutValue;
 @synthesize shortcutPlaceholder = _shortcutPlaceholder;
 @synthesize shortcutValueChange = _shortcutValueChange;
 @synthesize recording = _recording;
-@synthesize appearance=_appearance;
+@synthesize appearance = _appearance;
 
 #pragma mark -
 
@@ -110,6 +117,24 @@
     }
 }
 
+- (void)setHighlighted:(BOOL)highlighted
+{
+    if (_highlighted != highlighted) {
+        _highlighted = highlighted;
+        
+        [self setNeedsDisplay:YES];
+    }
+}
+
+- (void)setHintHighlighted:(BOOL)hintHighlighted
+{
+    if (_hintHighlighted != hintHighlighted) {
+        _hintHighlighted = hintHighlighted;
+        
+        [self setNeedsDisplay:YES];
+    }
+}
+
 - (void)setShortcutValue:(MASShortcut *)shortcutValue
 {
     if (shortcutValue != _shortcutValue){
@@ -146,6 +171,7 @@
     _shortcutCell.alignment = alignment;
     _shortcutCell.state = state;
     _shortcutCell.enabled = self.enabled;
+    _shortcutCell.highlighted = self.highlighted && self.mouseIsOver;
 
     switch (_appearance) {
         case MASShortcutViewAppearanceDefault: {
@@ -166,7 +192,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     if (self.shortcutValue) {
-        [self drawInRect:self.bounds withTitle:MASShortcutChar(self.recording ? kMASShortcutGlyphEscape : kMASShortcutGlyphDeleteLeft)
+        [self drawInRect:self.bounds withTitle:nil
                alignment:NSRightTextAlignment state:NSOffState];
         
         CGRect shortcutRect;
@@ -179,11 +205,27 @@
                                  : NSLocalizedString(@"Type New Shortcut", @"Non-empty shortcut button in recording state")))
                            : _shortcutValue ? _shortcutValue.description : @"");
         [self drawInRect:NSRectFromCGRect(shortcutRect) withTitle:title alignment:NSCenterTextAlignment state:self.isRecording ? NSOnState : NSOffState];
+        
+        NSString *imageName;
+        if (self.recording)
+            if (self.hintHighlighted && self.mouseIsOver)
+                imageName = @"Revert-Highlighted";
+            else
+                imageName = @"Revert";
+        else
+            if (self.hintHighlighted && self.mouseIsOver)
+                imageName = @"Clear-Highlighted";
+            else
+                imageName = @"Clear";
+        
+        NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:imageName]];
+        [image drawAdjustedAtPoint:NSMakePoint(shortcutRect.size.width + 5.0f, 6.0f) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+        [image release];
     }
     else {
         if (self.recording)
         {
-            [self drawInRect:self.bounds withTitle:MASShortcutChar(kMASShortcutGlyphEscape) alignment:NSRightTextAlignment state:NSOffState];
+            [self drawInRect:self.bounds withTitle:nil alignment:NSRightTextAlignment state:NSOffState];
             
             CGRect shortcutRect;
             [self getShortcutRect:&shortcutRect hintRect:NULL];
@@ -193,10 +235,14 @@
                                   ? self.shortcutPlaceholder
                                   : NSLocalizedString(@"Type Shortcut", @"Empty shortcut button in recording state")));
             [self drawInRect:NSRectFromCGRect(shortcutRect) withTitle:title alignment:NSCenterTextAlignment state:NSOnState];
+            
+            NSImage *image = [[NSImage alloc] initWithContentsOfFile:[[NSBundle bundleForClass:[self class]] pathForImageResource:(self.hintHighlighted && self.mouseIsOver ? @"Clear-Highlighted" : @"Clear")]];
+            [image drawAdjustedAtPoint:NSMakePoint(shortcutRect.size.width + 5.0f, 6.0f) fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.0];
+            [image release];
         }
         else
         {
-            [self drawInRect:self.bounds withTitle:NSLocalizedString(@"Record Shortcut", @"Empty shortcut button in normal state")
+            [self drawInRect:self.bounds withTitle:NSLocalizedString(@"Click to record shortcut", @"Empty shortcut button in normal state")
                    alignment:NSCenterTextAlignment state:NSOffState];
         }
     }
@@ -232,37 +278,61 @@
     return CGRectContainsPoint(hintRect, NSPointToCGPoint([self convertPoint:NSPointFromCGPoint(location) fromView:nil]));
 }
 
-- (void)mouseDown:(NSEvent *)event
+- (void)mouseDown:(NSEvent *)event {
+    CGPoint location = NSPointToCGPoint(event.locationInWindow);
+    if (self.enabled) {
+        if (self.shortcutValue) {
+            if (self.recording && [self locationInHintRect:location]) {
+                self.hintHighlighted = YES;
+            } else {
+                if ([self locationInHintRect:location]) {
+                    self.hintHighlighted = YES;
+                } else if ([self locationInShortcutRect:location]) {
+                    self.highlighted = YES;
+                }
+            }
+        } else {
+            if (self.recording && [self locationInHintRect:location]) {
+                self.hintHighlighted = YES;
+            } else if (!self.recording && ([self locationInShortcutRect:location] || [self locationInHintRect:location])) {
+                self.highlighted = YES;
+            }
+        }
+    } else {
+        [super mouseDown:event];
+    }
+}
+
+- (void)mouseUp:(NSEvent *)event
 {
+    CGPoint location = NSPointToCGPoint(event.locationInWindow);
+    self.highlighted = NO;
+    self.hintHighlighted = NO;
+    
     if (self.enabled) {
         if (self.shortcutValue) {
             if (self.recording) {
-                if ([self locationInHintRect:NSPointToCGPoint(event.locationInWindow)]) {
+                if ([self locationInHintRect:location]) {
                     self.recording = NO;
                 }
-            }
-            else {
-                if ([self locationInShortcutRect:NSPointToCGPoint(event.locationInWindow)]) {
+            } else {
+                if ([self locationInShortcutRect:location]) {
                     self.recording = YES;
-                }
-                else {
+                } else if ([self locationInHintRect:location]) {
                     self.shortcutValue = nil;
                 }
             }
-        }
-        else {
+        } else {
             if (self.recording) {
-                if ([self locationInHintRect:NSPointToCGPoint(event.locationInWindow)]) {
+                if ([self locationInHintRect:location])
                     self.recording = NO;
-                }
-            }
-            else {
-                self.recording = YES;
+            } else {
+                if ([self locationInHintRect:location] || [self locationInShortcutRect:location])
+                    self.recording = YES;
             }
         }
-    }
-    else {
-        [super mouseDown:event];
+    } else {
+        [super mouseUp:event];
     }
 }
 
@@ -280,11 +350,9 @@
     
     // Forbid hinting if view is disabled
     if (!self.enabled) return;
-    
-    CGRect hintRect;
-    [self getShortcutRect:NULL hintRect:&hintRect];
-    NSTrackingAreaOptions options = (NSTrackingMouseEnteredAndExited | NSTrackingActiveAlways | NSTrackingAssumeInside);
-    _hintArea = [[NSTrackingArea alloc] initWithRect:NSRectFromCGRect(hintRect) options:options owner:self userInfo:nil];
+        
+    NSTrackingAreaOptions options = (NSTrackingMouseEnteredAndExited | NSTrackingMouseMoved | NSTrackingActiveAlways | NSTrackingEnabledDuringMouseDrag);
+    _hintArea = [[NSTrackingArea alloc] initWithRect:self.bounds options:options owner:self userInfo:nil];
     [self addTrackingArea:_hintArea];
 }
 
@@ -292,18 +360,34 @@
 {
     if (_hinting != flag) {
         _hinting = flag;
+        
+        [self setNeedsDisplay:YES];
+    }
+}
+
+- (void)setMouseIsOver:(BOOL)mouseIsOver
+{
+    if (_mouseIsOver != mouseIsOver) {
+        _mouseIsOver = mouseIsOver;
+        
         [self setNeedsDisplay:YES];
     }
 }
 
 - (void)mouseEntered:(NSEvent *)event
 {
-    self.hinting = YES;
+    self.mouseIsOver = YES;
 }
 
 - (void)mouseExited:(NSEvent *)event
 {
-    self.hinting = NO;
+    self.mouseIsOver = NO;
+}
+
+- (void)mouseMoved:(NSEvent *)event
+{
+    CGPoint location = NSPointToCGPoint(event.locationInWindow);
+    self.hinting = [self locationInHintRect:location];
 }
 
 void *kUserDataShortcut = &kUserDataShortcut;

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02062EB816BE2D7300BB8754 /* Clear.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EB616BE2D7300BB8754 /* Clear.png */; };
+		02062EB916BE2D7300BB8754 /* Clear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EB716BE2D7300BB8754 /* Clear@2x.png */; };
+		02062EBC16BE302000BB8754 /* Clear-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EBA16BE302000BB8754 /* Clear-Highlighted.png */; };
+		02062EBD16BE302000BB8754 /* Clear-Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EBB16BE302000BB8754 /* Clear-Highlighted@2x.png */; };
+		02062EC216BE32AA00BB8754 /* Revert-Highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EBE16BE32A900BB8754 /* Revert-Highlighted.png */; };
+		02062EC316BE32AA00BB8754 /* Revert-Highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EBF16BE32A900BB8754 /* Revert-Highlighted@2x.png */; };
+		02062EC416BE32AA00BB8754 /* Revert.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EC016BE32A900BB8754 /* Revert.png */; };
+		02062EC516BE32AA00BB8754 /* Revert@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02062EC116BE32AA00BB8754 /* Revert@2x.png */; };
+		02062EC816BE34D700BB8754 /* NSImage+FlippedDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 02062EC616BE34D700BB8754 /* NSImage+FlippedDrawing.h */; };
+		02062EC916BE34D700BB8754 /* NSImage+FlippedDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 02062EC716BE34D700BB8754 /* NSImage+FlippedDrawing.m */; };
 		13F8FDBE16531A9C00FFDAD5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13F8FDBD16531A9C00FFDAD5 /* Cocoa.framework */; };
 		13F8FDDA16531EE900FFDAD5 /* MASShortcut+Monitoring.h in Headers */ = {isa = PBXBuildFile; fileRef = 13F8FDD216531EE800FFDAD5 /* MASShortcut+Monitoring.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		13F8FDDB16531EE900FFDAD5 /* MASShortcut+Monitoring.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F8FDD316531EE800FFDAD5 /* MASShortcut+Monitoring.m */; };
@@ -22,6 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02062EB616BE2D7300BB8754 /* Clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Clear.png; sourceTree = "<group>"; };
+		02062EB716BE2D7300BB8754 /* Clear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clear@2x.png"; sourceTree = "<group>"; };
+		02062EBA16BE302000BB8754 /* Clear-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clear-Highlighted.png"; sourceTree = "<group>"; };
+		02062EBB16BE302000BB8754 /* Clear-Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Clear-Highlighted@2x.png"; sourceTree = "<group>"; };
+		02062EBE16BE32A900BB8754 /* Revert-Highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Revert-Highlighted.png"; sourceTree = "<group>"; };
+		02062EBF16BE32A900BB8754 /* Revert-Highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Revert-Highlighted@2x.png"; sourceTree = "<group>"; };
+		02062EC016BE32A900BB8754 /* Revert.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Revert.png; sourceTree = "<group>"; };
+		02062EC116BE32AA00BB8754 /* Revert@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Revert@2x.png"; sourceTree = "<group>"; };
+		02062EC616BE34D700BB8754 /* NSImage+FlippedDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+FlippedDrawing.h"; sourceTree = "<group>"; };
+		02062EC716BE34D700BB8754 /* NSImage+FlippedDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+FlippedDrawing.m"; sourceTree = "<group>"; };
 		13F8FDBA16531A9C00FFDAD5 /* MASShortcut.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MASShortcut.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F8FDBD16531A9C00FFDAD5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		13F8FDC016531A9C00FFDAD5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -105,6 +125,8 @@
 				13F8FDD716531EE800FFDAD5 /* MASShortcutView.m */,
 				13F8FDD816531EE900FFDAD5 /* MASShortcutView+UserDefaults.h */,
 				13F8FDD916531EE900FFDAD5 /* MASShortcutView+UserDefaults.m */,
+				02062EC616BE34D700BB8754 /* NSImage+FlippedDrawing.h */,
+				02062EC716BE34D700BB8754 /* NSImage+FlippedDrawing.m */,
 				13F8FDC416531A9C00FFDAD5 /* Supporting Files */,
 			);
 			name = MASShortcut;
@@ -115,6 +137,14 @@
 			children = (
 				13F8FDC516531A9C00FFDAD5 /* MASShortcut-Info.plist */,
 				13F8FDC916531A9C00FFDAD5 /* MASShortcut-Prefix.pch */,
+				02062EB616BE2D7300BB8754 /* Clear.png */,
+				02062EB716BE2D7300BB8754 /* Clear@2x.png */,
+				02062EBA16BE302000BB8754 /* Clear-Highlighted.png */,
+				02062EBB16BE302000BB8754 /* Clear-Highlighted@2x.png */,
+				02062EBE16BE32A900BB8754 /* Revert-Highlighted.png */,
+				02062EBF16BE32A900BB8754 /* Revert-Highlighted@2x.png */,
+				02062EC016BE32A900BB8754 /* Revert.png */,
+				02062EC116BE32AA00BB8754 /* Revert@2x.png */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -131,6 +161,7 @@
 				13F8FDDC16531EE900FFDAD5 /* MASShortcut+UserDefaults.h in Headers */,
 				13F8FDDE16531EE900FFDAD5 /* MASShortcutView.h in Headers */,
 				13F8FDE016531EE900FFDAD5 /* MASShortcutView+UserDefaults.h in Headers */,
+				02062EC816BE34D700BB8754 /* NSImage+FlippedDrawing.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +218,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02062EB816BE2D7300BB8754 /* Clear.png in Resources */,
+				02062EB916BE2D7300BB8754 /* Clear@2x.png in Resources */,
+				02062EBC16BE302000BB8754 /* Clear-Highlighted.png in Resources */,
+				02062EBD16BE302000BB8754 /* Clear-Highlighted@2x.png in Resources */,
+				02062EC216BE32AA00BB8754 /* Revert-Highlighted.png in Resources */,
+				02062EC316BE32AA00BB8754 /* Revert-Highlighted@2x.png in Resources */,
+				02062EC416BE32AA00BB8754 /* Revert.png in Resources */,
+				02062EC516BE32AA00BB8754 /* Revert@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +241,7 @@
 				13F8FDDD16531EE900FFDAD5 /* MASShortcut+UserDefaults.m in Sources */,
 				13F8FDDF16531EE900FFDAD5 /* MASShortcutView.m in Sources */,
 				13F8FDE116531EE900FFDAD5 /* MASShortcutView+UserDefaults.m in Sources */,
+				02062EC916BE34D700BB8754 /* NSImage+FlippedDrawing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
