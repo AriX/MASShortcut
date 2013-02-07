@@ -4,4 +4,5 @@ This is a fork of the [MASShortcut project] (https://github.com/shpakovski/MASSh
 
 This version of MASShortcut is non-ARC (retain/release), and works on 10.6+.
 
-MASShortcut is licensed under the BSD license.
+MASShortcut is licensed under the 2-clause BSD license.
+
