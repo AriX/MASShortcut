@@ -79,8 +79,12 @@
 
 - (void)userDefaultsDidChange:(NSNotification *)note
 {
-    [MASShortcut removeGlobalHotkeyMonitor:self.monitor];
-    [self installHotKeyFromUserDefaults];
+    NSData *data = [[NSUserDefaults standardUserDefaults] dataForKey:_userDefaultsKey];
+    MASShortcut *newShortcut = [MASShortcut shortcutWithData:data];
+    if (![newShortcut.description isEqualToString:self.monitor]) {
+        [MASShortcut removeGlobalHotkeyMonitor:self.monitor];
+        [self installHotKeyFromUserDefaults];
+    }
 }
 
 - (void)installHotKeyFromUserDefaults

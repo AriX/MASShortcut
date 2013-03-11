@@ -94,9 +94,11 @@ void UninstallEventHandler();
 
 - (void)uninstallExistingHotKey
 {
-    if (_carbonHotKey) {
-        UnregisterEventHotKey(_carbonHotKey);
-        _carbonHotKey = NULL;
+    @synchronized(self) {
+        if (_carbonHotKey) {
+            UnregisterEventHotKey(_carbonHotKey);
+            _carbonHotKey = NULL;
+        }
     }
 }
 
