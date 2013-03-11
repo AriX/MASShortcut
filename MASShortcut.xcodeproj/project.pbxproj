@@ -53,7 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		02062E9C16BDFFEB00BB8754 /* MASShortcutTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MASShortcutTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		02062E9C16BDFFEB00BB8754 /* MASShortcutTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MASShortcutTest.app; path = "MASShortcut Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		02062EA016BDFFEB00BB8754 /* MASShortcutTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MASShortcutTest-Info.plist"; sourceTree = "<group>"; };
 		02062EA216BDFFEB00BB8754 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		02062EA416BDFFEB00BB8754 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -480,6 +480,7 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -497,6 +498,7 @@
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
