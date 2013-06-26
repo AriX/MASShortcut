@@ -142,7 +142,9 @@
         _shortcutValue = [shortcutValue retain];
     }
     [self resetToolTips];
-    [self setNeedsDisplay:YES];
+    // setNeedsDisplay: here causes an error to be printed out on -dealloc: "NSView not correctly initialized. Did you forget to call super?"
+    // Everything seems to render properly without it, so let's leave it out for now.
+    //[self setNeedsDisplay:YES];
 
     if (self.shortcutValueChange) {
         self.shortcutValueChange(self);
