@@ -244,7 +244,7 @@
         }
         else
         {
-            [self drawInRect:self.bounds withTitle:NSLocalizedString(@"Click to record shortcut", @"Empty shortcut button in normal state")
+            [self drawInRect:self.bounds withTitle:NSLocalizedString(@"Click to record hotkey", @"Empty shortcut button in normal state")
                    alignment:NSCenterTextAlignment state:NSOffState];
         }
     }
