@@ -5,8 +5,6 @@
 @interface MASShortcutDefaultsObserver : NSObject {
 
     MASShortcut *_originalShortcut;
-    BOOL _internalPreferenceChange;
-    BOOL _internalShortcutChange;
     NSString *_userDefaultsKey;
     MASShortcutView *_shortcutView;
 
@@ -83,31 +81,14 @@ void *kShortcutValueObserver = &kShortcutValueObserver;
     NSData *data = [defaults dataForKey:_userDefaultsKey];
     _shortcutView.shortcutValue = [MASShortcut shortcutWithData:data];
 
-    // Observe user preferences to update shortcut value when it changed
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDefaultsDidChange:) name:NSUserDefaultsDidChangeNotification object:defaults];
-
     // Observe the keyboard shortcut that user inputs by hand
     [_shortcutView addObserver:self forKeyPath:@"shortcutValue" options:0 context:kShortcutValueObserver];
-}
-
-- (void)userDefaultsDidChange:(NSNotification *)note
-{
-    // Ignore notifications posted from -[self observeValueForKeyPath:]
-    if (_internalPreferenceChange) return;
-
-    _internalShortcutChange = YES;
-    NSData *data = [note.object dataForKey:_userDefaultsKey];
-    _shortcutView.shortcutValue = [MASShortcut shortcutWithData:data];
-    _internalShortcutChange = NO;
 }
 
 - (void)stopObservingShortcutView
 {
     // Stop observing keyboard hotkeys entered by user in the shortcut view
     [_shortcutView removeObserver:self forKeyPath:@"shortcutValue" context:kShortcutValueObserver];
-
-    // Stop observing user preferences
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSUserDefaultsDidChangeNotification object:[NSUserDefaults standardUserDefaults]];
 
     // Restore original hotkey in the shortcut view
     _shortcutView.shortcutValue = _originalShortcut;
@@ -116,15 +97,11 @@ void *kShortcutValueObserver = &kShortcutValueObserver;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if (context == kShortcutValueObserver) {
-        if (_internalShortcutChange) return;
         MASShortcut *shortcut = [object valueForKey:keyPath];
-        _internalPreferenceChange = YES;
 
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:(shortcut.data ?: [NSKeyedArchiver archivedDataWithRootObject:nil]) forKey:_userDefaultsKey];
         [defaults synchronize];
-
-        _internalPreferenceChange = NO;
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
