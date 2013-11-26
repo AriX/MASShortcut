@@ -276,7 +276,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MAS;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "";
 			};
 			buildConfigurationList = 13F8FDB416531A9C00FFDAD5 /* Build configuration list for PBXProject "MASShortcut" */;
@@ -437,6 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
 			name = Debug;
